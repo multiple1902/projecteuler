@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# By Weisi Dai <weisi@x-research.com>
+
+TEMPLATE='template.fsx'
+PROBID=$1
+
+set -C
+sed "s/PROBID/$PROBID/g" $TEMPLATE > problem${PROBID}.fsx
+
+set +C
+(
+echo 'all: \'
+for i in `seq 1 $PROBID`; do
+    echo -ne "\t"
+    echo "problem${i}.exe \\"
+done
+echo
+for i in `seq 1 $PROBID`; do
+    echo "problem${i}.exe: problem${i}.fsx"
+    echo -ne '\t'
+    echo "fsharpc problem${i}.fsx"
+    echo
+done
+echo 'clean:'
+echo -e '\trm problem*.exe'
+) > Makefile
+exit
+
+set +C
+TEMPFILE=`mktemp`
+if grep -q "problem${PROBID}\.exe" Makefile; then
+    :
+else
+    sed -e '/EndOfAll/,$d' Makefile > $TEMPFILE
+    echo '\t# EndOfAll' >> $TEMPFILE
+    sed -e '/EndOfAll/,$p' Makefile >> $TEMPFILE
+    cat >> $TEMPFILE << EOF |
+
+problem${PROBID}.exe: problem${PROBID}.fsx
+TABfsharpc problem${PROBID}.fsx
+
+EOF
+    sed 's/TAB/\t/'
+    mv $TEMPFILE Makefile
+fi

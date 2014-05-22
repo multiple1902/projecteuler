@@ -26,21 +26,3 @@ echo 'clean:'
 echo -e '\trm problem*.exe'
 ) > Makefile
 exit
-
-set +C
-TEMPFILE=`mktemp`
-if grep -q "problem${PROBID}\.exe" Makefile; then
-    :
-else
-    sed -e '/EndOfAll/,$d' Makefile > $TEMPFILE
-    echo '\t# EndOfAll' >> $TEMPFILE
-    sed -e '/EndOfAll/,$p' Makefile >> $TEMPFILE
-    cat >> $TEMPFILE << EOF |
-
-problem${PROBID}.exe: problem${PROBID}.fsx
-TABfsharpc problem${PROBID}.fsx
-
-EOF
-    sed 's/TAB/\t/'
-    mv $TEMPFILE Makefile
-fi

@@ -10,6 +10,7 @@ all: \
 	problem9.exe \
 	problem10.exe \
 	problem11.exe \
+	problem12.exe \
 
 problem1.exe: problem1.fsx
 	fsharpc problem1.fsx
@@ -43,6 +44,9 @@ problem10.exe: problem10.fsx
 
 problem11.exe: problem11.fsx
 	fsharpc problem11.fsx
+
+problem12.exe: problem12.fsx
+	fsharpc problem12.fsx
 
 clean:
 	rm problem*.exe

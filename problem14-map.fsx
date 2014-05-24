@@ -10,7 +10,7 @@ let collatz = function
 
 (*
  * This is the implementation using Maps.
- * It is slower than the brute force approach in ``problem14.fsx``.
+ * It is slower than the brute force approach in ``problem14.fsx''.
  *)
 
 type DistMap = Map<int64,int>

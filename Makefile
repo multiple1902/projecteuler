@@ -6,6 +6,7 @@ all: \
 	problem14.exe \
 	problem14-map.exe \
 	problem15.exe \
+	problem16.exe \
 	problem1.exe \
 	problem2.exe \
 	problem3.exe \
@@ -36,6 +37,9 @@ problem14-map.exe: problem14-map.fsx
 
 problem15.exe: problem15.fsx
 	fsharpc problem15.fsx
+
+problem16.exe: problem16.fsx
+	fsharpc problem16.fsx
 
 problem1.exe: problem1.fsx
 	fsharpc problem1.fsx

@@ -1,4 +1,10 @@
 all: \
+	problem10.exe \
+	problem11.exe \
+	problem12.exe \
+	problem13.exe \
+	problem14.exe \
+	problem14-map.exe \
 	problem1.exe \
 	problem2.exe \
 	problem3.exe \
@@ -8,10 +14,24 @@ all: \
 	problem7.exe \
 	problem8.exe \
 	problem9.exe \
-	problem10.exe \
-	problem11.exe \
-	problem12.exe \
-	problem13.exe \
+
+problem10.exe: problem10.fsx
+	fsharpc problem10.fsx
+
+problem11.exe: problem11.fsx
+	fsharpc problem11.fsx
+
+problem12.exe: problem12.fsx
+	fsharpc problem12.fsx
+
+problem13.exe: problem13.fsx
+	fsharpc problem13.fsx
+
+problem14.exe: problem14.fsx
+	fsharpc problem14.fsx
+
+problem14-map.exe: problem14-map.fsx
+	fsharpc problem14-map.fsx
 
 problem1.exe: problem1.fsx
 	fsharpc problem1.fsx
@@ -39,18 +59,6 @@ problem8.exe: problem8.fsx
 
 problem9.exe: problem9.fsx
 	fsharpc problem9.fsx
-
-problem10.exe: problem10.fsx
-	fsharpc problem10.fsx
-
-problem11.exe: problem11.fsx
-	fsharpc problem11.fsx
-
-problem12.exe: problem12.fsx
-	fsharpc problem12.fsx
-
-problem13.exe: problem13.fsx
-	fsharpc problem13.fsx
 
 clean:
 	rm problem*.exe

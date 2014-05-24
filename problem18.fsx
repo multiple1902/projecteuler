@@ -2,8 +2,6 @@
  * By Weisi Dai <weisi@x-research.com>
  *)
 
-let ubound = 42
-
 let numbers = System.IO.File.ReadLines "problem18.data" 
               |> Seq.map (fun str -> str.Split(' '))
               |> Seq.map (Seq.map (int))

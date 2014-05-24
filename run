@@ -1,0 +1,5 @@
+#!/bin/bash
+
+PROBID=$1
+
+mono problem${PROBID}.exe

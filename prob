@@ -11,15 +11,18 @@ sed "s/PROBID/$PROBID/g" $TEMPLATE > problem${PROBID}.fsx
 set +C
 (
 echo 'all: \'
-for i in `seq 1 $PROBID`; do
+for i in problem*.fsx; do
     echo -ne "\t"
-    echo "problem${i}.exe \\"
+    echo -n "$i" | sed 's/fsx/exe/'
+    echo " \\"
 done
 echo
-for i in `seq 1 $PROBID`; do
-    echo "problem${i}.exe: problem${i}.fsx"
+for i in problem*.fsx; do
+    echo -n "$i" | sed 's/fsx/exe/'
+    echo -n ': '
+    echo "$i"
     echo -ne '\t'
-    echo "fsharpc problem${i}.fsx"
+    echo "fsharpc ${i}"
     echo
 done
 echo 'clean:'

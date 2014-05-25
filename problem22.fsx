@@ -5,8 +5,6 @@
 let NAMES_FILENAME = "./problem22.res"
 let NAMES_URL = "http://projecteuler.net/project/names.txt"
 
-let ubound = 42
-
 if not <| System.IO.File.Exists NAMES_FILENAME then
     (new System.Net.WebClient()).DownloadFile(NAMES_URL, NAMES_FILENAME)
 

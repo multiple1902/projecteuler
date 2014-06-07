@@ -29,6 +29,7 @@ all: \
 	problem34.exe \
 	problem35.exe \
 	problem36.exe \
+	problem37.exe \
 	problem3.exe \
 	problem4.exe \
 	problem5.exe \
@@ -126,6 +127,9 @@ problem35.exe: problem35.fsx
 
 problem36.exe: problem36.fsx
 	fsharpc problem36.fsx
+
+problem37.exe: problem37.fsx
+	fsharpc problem37.fsx
 
 problem3.exe: problem3.fsx
 	fsharpc problem3.fsx

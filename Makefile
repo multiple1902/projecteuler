@@ -34,6 +34,7 @@ all: \
 	problem39.exe \
 	problem3.exe \
 	problem40.exe \
+	problem41.exe \
 	problem4.exe \
 	problem5.exe \
 	problem6.exe \
@@ -145,6 +146,9 @@ problem3.exe: problem3.fsx
 
 problem40.exe: problem40.fsx
 	fsharpc algorithms.fs problem40.fsx
+
+problem41.exe: problem41.fsx
+	fsharpc algorithms.fs problem41.fsx
 
 problem4.exe: problem4.fsx
 	fsharpc algorithms.fs problem4.fsx

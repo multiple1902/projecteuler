@@ -33,8 +33,6 @@ let truncable x =
 
 let problem37 = primesArr
                 |> Array.filter truncable
-                |> Array.filter (fun x -> printfn "%A" x
-                                          true)
                 |> Array.sum
     
 let main = printfn "The answer is %d." (problem37)

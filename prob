@@ -30,6 +30,6 @@ for i in problem*.fsx; do
     echo
 done
 echo 'clean:'
-echo -e '\trm problem*.exe'
+echo -e '\trm problem*.exe problem*.res'
 ) > Makefile
 exit

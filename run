@@ -2,4 +2,5 @@
 
 PROBID=$1
 
+export MONO_TRACE_LISTENER=Console.Error
 mono problem${PROBID}.exe

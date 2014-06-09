@@ -37,6 +37,7 @@ all: \
 	problem3.exe \
 	problem40.exe \
 	problem41.exe \
+	problem42.exe \
 	problem4.exe \
 	problem5.exe \
 	problem6.exe \
@@ -152,6 +153,9 @@ problem40.exe: problem40.fsx
 problem41.exe: problem41.fsx
 	$(FSHARPC) algorithms.fs problem41.fsx
 
+problem42.exe: problem42.fsx
+	$(FSHARPC) algorithms.fs problem42.fsx
+
 problem4.exe: problem4.fsx
 	$(FSHARPC) algorithms.fs problem4.fsx
 
@@ -171,4 +175,4 @@ problem9.exe: problem9.fsx
 	$(FSHARPC) algorithms.fs problem9.fsx
 
 clean:
-	rm problem*.exe
+	rm problem*.exe problem*.res

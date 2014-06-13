@@ -31,13 +31,15 @@ type CompareResult =
 
 let rec BinarySearch low high test = 
                      //  ^^ high is unreachable
+    if (high = low) && (test low <> CompareResult.COMPARE_HIT) then
+        None else
     let mid = (high + low) / 2
     match test mid with
     | CompareResult.COMPARE_TOO_LARGE -> 
                 BinarySearch low mid  test
     | CompareResult.COMPARE_TOO_SMALL -> 
                 BinarySearch mid high test
-    | CompareResult.COMPARE_HIT | _   -> mid
+    | CompareResult.COMPARE_HIT | _   -> Some mid
 
 let FindGate low test = 
 
@@ -54,7 +56,7 @@ let FindGate low test =
 
     let rec GateSearch offset step = 
         if test <| offset + step - 1 then
-            BinarySearch offset (offset + step) compareEnter
+            (BinarySearch offset (offset + step) compareEnter).Value
         else 
             GateSearch (offset + step) (step * 2)
 

@@ -8,14 +8,9 @@ let ubound = 9
 
 let primes = PrimesUpTo 17
 
-let rec factorial = function
-    | 0 -> 1
-    | n -> n * factorial (n - 1)
-
 let getPermutations n = 
     Seq.unfold (fun perm -> let next = NextPermutation perm
                             if next.IsNone then None else
-                            // printfn "%A" next.Value
                             Some(next.Value |> Array.map (string) 
                                  |> String.concat "" |> int64,
                                  next.Value))

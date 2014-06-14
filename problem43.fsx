@@ -12,7 +12,7 @@ let rec factorial = function
     | 0 -> 1
     | n -> n * factorial (n - 1)
 
-let fullArrangements n = 
+let getPermutations n = 
     let rec getNumber sequence (current: int list) (dict: int[]) =
         let remaining = n - current.Length
         if remaining = 0 then 
@@ -39,7 +39,7 @@ let isSpecial i =
                testPairs
 
 let specialNumbers = seq {
-    for i in fullArrangements (ubound + 1) do
+    for i in getPermutations (ubound + 1) do
         if isSpecial i then
             yield i
 }

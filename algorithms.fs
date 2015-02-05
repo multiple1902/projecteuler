@@ -8,6 +8,15 @@ let AnswerToEverything = 42
 
 // Numeric
 
+let IsOdd x = x % 2 = 1
+
+let Square x = x * x
+
+let IsSquare x =
+    (x |> float |> sqrt |> int)
+    |> Square
+    |> (=) x
+
 let IsPrime x = 
     seq { 2 .. (x |> float |> sqrt |> int) }
     |> Seq.exists (fun divisor -> x % divisor = 0) |> not

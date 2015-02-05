@@ -41,6 +41,7 @@ all: \
 	problem43.exe \
 	problem43-nextperm.exe \
 	problem44.exe \
+	problem45.exe \
 	problem4.exe \
 	problem5.exe \
 	problem6.exe \
@@ -167,6 +168,9 @@ problem43-nextperm.exe: problem43-nextperm.fsx
 
 problem44.exe: problem44.fsx
 	$(FSHARPC) algorithms.fs problem44.fsx
+
+problem45.exe: problem45.fsx
+	$(FSHARPC) algorithms.fs problem45.fsx
 
 problem4.exe: problem4.fsx
 	$(FSHARPC) algorithms.fs problem4.fsx

@@ -40,7 +40,7 @@ type CompareResult =
 
 let rec BinarySearch low high test = 
                      //  ^^ high is unreachable
-    if (high = low) && (test low <> CompareResult.COMPARE_HIT) then
+    if (high <= low + 1) && (test low <> CompareResult.COMPARE_HIT) then
         None else
     let mid = (high + low) / 2
     match test mid with
@@ -75,6 +75,11 @@ let FindRange low testEnter testLeave =
     let lbound = FindGate low          testEnter
     let ubound = FindGate (lbound - 1) testLeave
     (lbound, ubound - 1)
+
+let Compare expected actual =
+    if actual < expected then CompareResult.COMPARE_TOO_SMALL else
+    if actual > expected then CompareResult.COMPARE_TOO_LARGE else
+    CompareResult.COMPARE_HIT
 
 
 // Combinatorics

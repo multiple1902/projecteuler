@@ -20,7 +20,7 @@ type PatternDigit =
 
 let getPatternDigit = function
     | x when x = BASE -> UnknownDigit
-    | x               -> KnownDigit(x)
+    | x               -> KnownDigit x
 
 let fillinPatternDigit fillin = function
     | KnownDigit x -> x
@@ -29,9 +29,9 @@ let fillinPatternDigit fillin = function
 type Pattern = PatternDigit list
 
 let rec isValidPattern = function
-    | hd::tl when hd = UnknownDigit -> true
-    | hd::tl                        -> isValidPattern tl
-    | []                            -> false
+    | UnknownDigit::tl -> true
+    | hd::tl           -> isValidPattern tl
+    | []               -> false
 
 let constructIntFromPattern pattern fillin =
     let rec makeInt current = function

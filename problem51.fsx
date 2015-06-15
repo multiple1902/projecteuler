@@ -8,6 +8,7 @@ let threshold = 8
 
 let lbound = 2  // start search from 2 digits
 
+[<Literal>]
 let BASE = 10
 
 let PATTERNBASE = BASE + 1
@@ -19,8 +20,8 @@ type PatternDigit =
     | UnknownDigit
 
 let getPatternDigit = function
-    | x when x = BASE -> UnknownDigit
-    | x               -> KnownDigit x
+    | BASE -> UnknownDigit
+    | x    -> KnownDigit x
 
 let fillinPatternDigit fillin = function
     | KnownDigit x -> x
@@ -73,8 +74,8 @@ let rec search len =
     let rec _search current =
         if len |> numberOfPatterns = current then None else
         match current |> buildPattern |> checkPattern with
-        | Some(x) -> Some(x)
-        | _       -> _search (current + 1)
+        | Some x -> Some x
+        | _      -> _search (current + 1)
 
     match _search (numberOfPatterns (len - 1)) with
     | Some x -> x

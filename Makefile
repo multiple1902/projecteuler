@@ -49,6 +49,7 @@ all: \
 	problem4.exe \
 	problem50.exe \
 	problem51.exe \
+	problem52.exe \
 	problem5.exe \
 	problem6.exe \
 	problem7.exe \
@@ -198,6 +199,9 @@ problem50.exe: problem50.fsx
 
 problem51.exe: problem51.fsx
 	$(FSHARPC) algorithms.fs problem51.fsx
+
+problem52.exe: problem52.fsx
+	$(FSHARPC) algorithms.fs problem52.fsx
 
 problem5.exe: problem5.fsx
 	$(FSHARPC) algorithms.fs problem5.fsx
